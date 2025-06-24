@@ -54,7 +54,7 @@ public class LogicaClasificacion {
                 if ((c == '}' && ultimo != '{') ||
                     (c == ']' && ultimo != '[') ||
                     (c == ')' && ultimo != '(')) {
-                    return false; // Símbolos no balanceados
+                    return false; 
                 }
             }
         }
