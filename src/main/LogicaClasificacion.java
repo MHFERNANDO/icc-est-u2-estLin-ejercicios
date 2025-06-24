@@ -51,13 +51,14 @@ public class LogicaClasificacion {
                     return false;
                 }
                 char ultimo = pila.pop();
-                if ((c == '}' && ultimo != '{') ||
-                    (c == ']' && ultimo != '[') ||
-                    (c == ')' && ultimo != '(')) {
-                    return false; 
+                if (!((c == '}' && ultimo == '{') ||
+                    (c == ']' && ultimo == '[') ||
+                    (c == ')' && ultimo == '('))) {
+                    return false;
                 }
             }
         }
+        return pila.isEmpty();
 
         /*Stack<Character> simbolosAper = new Stack<>();
         Stack<Character> simboloCier= new Stack<>();
@@ -67,7 +68,6 @@ public class LogicaClasificacion {
             }else if(c =='}' || c ==']' || c==')'){
                 simboloCier.push(c);
             }*/
-        return true;
     }
 
     /**
