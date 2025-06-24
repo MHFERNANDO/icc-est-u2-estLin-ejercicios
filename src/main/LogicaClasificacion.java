@@ -14,8 +14,19 @@ public class LogicaClasificacion {
      *         Entrada: "Hola Mundo"
      *         Salida: "odnuM aloH"
      */
+
+
     public String invertirCadena(String texto) {
-        return "";
+        Stack<Character> pila = new Stack<>();
+        for (char c : texto.toCharArray()) {
+            pila.push(c);
+        }
+
+        StringBuilder invertido = new StringBuilder();
+        while (!pila.isEmpty()) {
+            invertido.append(pila.pop());
+        }
+        return invertido.toString();
     }
 
     /**
@@ -30,7 +41,33 @@ public class LogicaClasificacion {
      *         Salida: true
      */
     public boolean validarSimbolos(String expresion) {
-        return false;
+        
+        Stack<Character> pila = new Stack<>();
+        for (char c : expresion.toCharArray()) {
+            if (c == '{' || c == '[' || c == '(') {
+                pila.push(c);
+            } else if (c == '}' || c == ']' || c == ')') {
+                if (pila.isEmpty()) {
+                    return false;
+                }
+                char ultimo = pila.pop();
+                if ((c == '}' && ultimo != '{') ||
+                    (c == ']' && ultimo != '[') ||
+                    (c == ')' && ultimo != '(')) {
+                    return false; // Símbolos no balanceados
+                }
+            }
+        }
+
+        /*Stack<Character> simbolosAper = new Stack<>();
+        Stack<Character> simboloCier= new Stack<>();
+        for (char c : expresion.toCharArray()){
+            if (c =='{' || c =='[' || c=='(' ){
+                simbolosAper.push(c);
+            }else if(c =='}' || c ==']' || c==')'){
+                simboloCier.push(c);
+            }*/
+        return true;
     }
 
     /**
@@ -43,8 +80,20 @@ public class LogicaClasificacion {
      *         Salida: [1, 2, 3, 4]
      */
     public List<Integer> ordenarPila(Stack<Integer> pila) {
+        Stack<Integer> pila2 = new Stack<>();
 
-        return new ArrayList<>();
+        for (int i = 0 ; i<pila.size();i++){
+
+            int ultimo = pila.pop();
+
+            if (ultimo < pila.peek()){
+                
+            }
+
+        }
+        return pila2;
+
+
     }
 
     /**

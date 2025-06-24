@@ -19,7 +19,7 @@ public class App {
         String texto = "Hola Mundo";
         String invertido = logica.invertirCadena(texto);
         System.out.println("invertirCadena(\"" + texto + "\"): " + invertido);
-
+        
         // Probar validarSimbolos
         String expresion = "{[()]}";
         boolean balanceado = logica.validarSimbolos(expresion);
