@@ -81,17 +81,25 @@ public class LogicaClasificacion {
      */
     public List<Integer> ordenarPila(Stack<Integer> pila) {
         Stack<Integer> pila2 = new Stack<>();
+        for (int i = 0; i < pila.size(); i++) {
+            int ultimo = pila.pop();
+            while (!pila.isEmpty() && ultimo < pila.peek()) {
+                pila2.push(pila.pop());
+            }
+            pila2.push(ultimo);
+        }return new ArrayList<>(pila2);
 
-        for (int i = 0 ; i<pila.size();i++){
+        /*for (int i = 0 ; i<pila.size();i++){
 
             int ultimo = pila.pop();
 
-            if (ultimo < pila.peek()){
-                
+            while (ultimo < pila.peek()){
+                pila2.push(pila.peek());
+                pila.pop();
             }
-
+            pila2.push(ultimo);
         }
-        return pila2;
+        return pila2;*/
 
 
     }
@@ -107,7 +115,19 @@ public class LogicaClasificacion {
      *         Salida: [2, 4, 6, 1, 3, 5]
      */
     public List<Integer> clasificarPorParidad(LinkedList<Integer> original) {
+        LinkedList<Integer> pares = new LinkedList<>();
+        LinkedList<Integer> impares = new LinkedList<>();
 
-        return new ArrayList<>();
+        for (Integer numero : original) {
+            if (numero % 2 == 0) {
+                pares.add(numero);
+            } else {
+                impares.add(numero);
+            }
+        }
+
+        // Combina las listas de pares e impares
+        pares.addAll(impares);
+        return pares;
     }
 }
